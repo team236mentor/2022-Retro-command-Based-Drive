@@ -18,7 +18,7 @@ public class DriveWithJoysticks extends CommandBase {
   /**
    * Creates a new DriveWithJoysticks.
    */
-  public DriveWithJoysticks(Drive drive, Joystick leftStick, Joystick rightStick, boolean isCube) {
+  public DriveWithJoysticks(Drive drive, Joystick leftStick, Joystick rightStick) {
 
     this.drive = drive;
     this.leftStick = leftStick;

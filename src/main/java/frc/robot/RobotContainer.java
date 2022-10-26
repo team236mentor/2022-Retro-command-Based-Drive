@@ -30,7 +30,7 @@ public class RobotContainer {
   Thrustmaster rightStick = new Thrustmaster(Constants.USB_RIGHT_STICK);
 
   
-  private final DriveWithJoysticks driveWithJoysticks = new DriveWithJoysticks(drive, leftStick, rightStick, false);
+  private final DriveWithJoysticks driveWithJoysticks = new DriveWithJoysticks(drive, leftStick, rightStick);
   
   /**
    * The container for the robot.  Contains subsystems, OI devices, and commands.
