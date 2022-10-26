@@ -10,11 +10,9 @@ package frc.robot;
 import edu.wpi.first.wpilibj.GenericHID;
 import edu.wpi.first.wpilibj.XboxController;
 import frc.robot.commands.DriveWithJoysticks;
-import frc.robot.commands.ExampleCommand;
 import frc.robot.lib.oi.LogitechF310;
 import frc.robot.lib.oi.Thrustmaster;
 import frc.robot.subsystems.Drive;
-import frc.robot.subsystems.ExampleSubsystem;
 import edu.wpi.first.wpilibj2.command.Command;
 
 /**
@@ -25,18 +23,15 @@ import edu.wpi.first.wpilibj2.command.Command;
  */
 public class RobotContainer {
   // The robot's subsystems and commands are defined here...
-  private final ExampleSubsystem m_exampleSubsystem = new ExampleSubsystem();
-  private final Drive drive = new Drive();
+   private final Drive drive = new Drive();
   
   LogitechF310 controller = new LogitechF310(Constants.USB_CONTROLLER);
   Thrustmaster leftStick = new Thrustmaster(Constants.USB_LEFT_STICK);
   Thrustmaster rightStick = new Thrustmaster(Constants.USB_RIGHT_STICK);
 
-  private final ExampleCommand m_autoCommand = new ExampleCommand(m_exampleSubsystem);
-
+  
   private final DriveWithJoysticks driveWithJoysticks = new DriveWithJoysticks(drive, leftStick, rightStick, false);
-  private final DriveWithJoysticks cubeWithJoysticks = new DriveWithJoysticks(drive, leftStick, rightStick, true);
-
+  
   /**
    * The container for the robot.  Contains subsystems, OI devices, and commands.
    */
@@ -53,7 +48,7 @@ public class RobotContainer {
    */
   private void configureButtonBindings() {
     
-    leftStick.left.whileHeld(cubeWithJoysticks);
+    leftStick.left.whileHeld(driveWithJoysticks);
 
   }
 
@@ -65,6 +60,6 @@ public class RobotContainer {
    */
   public Command getAutonomousCommand() {
     // An ExampleCommand will run in autonomous
-    return m_autoCommand;
+    return driveWithJoysticks;
   }
 }
